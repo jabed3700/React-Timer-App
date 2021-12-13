@@ -21,3 +21,6 @@
     font-size: 40px;
     margin:0 20px;
 }
+p{
+    display: inline-block;
+}
