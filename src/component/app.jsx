@@ -27,6 +27,12 @@ class App extends React.Component{
             },1000)
         }
     }
+    stopTimer = () => {
+        if(this.intervalId){
+            clearInterval(this.intervalId)
+            this.intervalId = null
+        }
+    }
     render() {
         
         return (
@@ -39,8 +45,8 @@ class App extends React.Component{
                 </div>
                 <div className="Container">
                     <button className="Btn" onClick={this.startTimer}>Start</button>
-                    <button className="Btn">Reset</button>
-                    <button className="Btn">Stop</button>
+                    <button className="Btn" >Reset</button>
+                    <button className="Btn" onClick={this.stopTimer}>Stop</button>
                 </div>
              </div>
         )
