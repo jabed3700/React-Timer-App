@@ -15,7 +15,7 @@ class App extends React.Component{
         
         return (
              <div className="App">
-                 <h1 className="heading">Amar sonar bangla</h1>
+                 <h1 className="Heading">React Timer App</h1>
              </div>
         )
     }
