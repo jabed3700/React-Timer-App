@@ -5,6 +5,7 @@ class App extends React.Component{
     state= {
         count:0,
     }
+    intervalId = null;
     incrementCount = ()=>{
         this.setState({count:this.state.count+1})
     }
@@ -12,6 +13,19 @@ class App extends React.Component{
        if(this.state.count > 0){
             this.setState({count:this.state.count-1})
        }
+    }
+    startTimer = ()=>{
+        if(this.state.count > 0 && !this.intervalId){
+            this.intervalId = setInterval(()=>{
+                this.setState({count:this.state.count-1},()=>{
+                    if(this.state.count == 0){
+                        alert("Timer Finised")
+                        clearInterval(this.intervalId)
+                        this.intervalId = null
+                    }
+                })
+            },1000)
+        }
     }
     render() {
         
@@ -22,6 +36,11 @@ class App extends React.Component{
                     <button className="Btn" onClick={this.decrementCount}> - </button>
                     <p className="Text">{this.state.count}</p>
                     <button className="Btn" onClick={this.incrementCount}> + </button>
+                </div>
+                <div className="Container">
+                    <button className="Btn" onClick={this.startTimer}>Start</button>
+                    <button className="Btn">Reset</button>
+                    <button className="Btn">Stop</button>
                 </div>
              </div>
         )
